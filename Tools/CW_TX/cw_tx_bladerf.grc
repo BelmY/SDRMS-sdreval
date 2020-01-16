@@ -1,0 +1,212 @@
+options:
+  parameters:
+    author: Alexandru Csete
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: cw_tx_bladerf
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: BladeRF CW TX
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: gain
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: Gain (dB)
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '-20'
+    step: '1'
+    stop: '66'
+    value: '30'
+    widget: counter
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [709, 11]
+    rotation: 0
+    state: true
+- name: lo_freq
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: LO Frequency
+    type: real
+    value: 145e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [298, 10]
+    rotation: 0
+    state: true
+- name: offset
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: Signal Offset
+    type: real
+    value: 100e3
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [434, 10]
+    rotation: 0
+    state: true
+- name: sample_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '6000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: tx_on
+  id: variable_qtgui_check_box
+  parameters:
+    comment: ''
+    'false': 'True'
+    gui_hint: ''
+    label: TX ON
+    'true': 'False'
+    type: bool
+    value: 'True'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [572, 11]
+    rotation: 0
+    state: true
+- name: analog_sig_source_x_0
+  id: analog_sig_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: ''
+    freq: offset
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: sample_rate
+    type: complex
+    waveform: analog.GR_COS_WAVE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [66, 224]
+    rotation: 0
+    state: true
+- name: blocks_mute_xx_0
+  id: blocks_mute_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    mute: tx_on
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [360, 268]
+    rotation: 0
+    state: true
+- name: soapy_sink_0
+  id: soapy_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    amp_gain0: '0'
+    ant0: TX1
+    ant1: TX
+    args: ''
+    balance0: '0'
+    balance1: '0'
+    bw0: '0'
+    bw1: '0'
+    center_freq0: lo_freq
+    center_freq1: 100.0e6
+    clock_rate: '0'
+    clock_source: ''
+    comment: ''
+    correction0: '0'
+    correction1: '0'
+    dc_offset0: '0'
+    dc_offset1: '0'
+    dc_offset_auto_mode0: 'True'
+    dc_offset_auto_mode1: 'False'
+    dev: driver=uhd
+    devname: bladerf
+    gain_auto_mode0: 'False'
+    gain_auto_mode1: 'False'
+    iamp_gain0: '0'
+    iamp_gain1: '0'
+    length_tag_name: ''
+    manual_gain0: 'True'
+    manual_gain1: 'True'
+    nchan: '1'
+    nco_freq0: '0'
+    nco_freq1: '0'
+    overall_gain0: gain
+    overall_gain1: '0'
+    pad_gain0: '0'
+    pad_gain1: '0'
+    pga_gain0: '24'
+    pga_gain1: '0'
+    samp_rate: sample_rate
+    type: fc32
+    vga_gain0: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [586, 256]
+    rotation: 0
+    state: true
+
+connections:
+- [analog_sig_source_x_0, '0', blocks_mute_xx_0, '0']
+- [blocks_mute_xx_0, '0', soapy_sink_0, '0']
+
+metadata:
+  file_format: 1
