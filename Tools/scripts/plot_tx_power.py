@@ -21,7 +21,7 @@ infile = sys.argv[1]
 data = np.loadtxt(infile, dtype=float)
 ncolumns = data.shape[1]
 
-plt.figure(1)
+plt.figure(num=1, figsize=(10, 6))
 plt.title(title)
 plt.xlabel('Gain setting')
 plt.ylabel('Power (dBm)')
@@ -37,5 +37,8 @@ if ncolumns > 6:
 
 plt.grid(linestyle='--', linewidth=0.5)
 plt.legend()
-#plt.savefig('test.svg')
+
+svgfile = infile + '.svg'
+plt.savefig(svgfile)
+
 plt.show()
