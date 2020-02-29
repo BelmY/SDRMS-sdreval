@@ -10,7 +10,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: dvbs2_tx_usrp
+    id: dvbs2_tx_pluto
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -59,7 +59,7 @@ blocks:
     start: '0'
     step: '1'
     stop: '89'
-    value: '10'
+    value: '20'
     widget: counter_slider
   states:
     bus_sink: false
@@ -96,7 +96,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '6250000'
+    value: '1000000'
   states:
     bus_sink: false
     bus_source: false
@@ -457,7 +457,7 @@ blocks:
     affinity: ''
     alias: ''
     amp_gain0: '0'
-    ant0: TX/RX
+    ant0: A
     ant1: TX
     args: ''
     balance0: '0'
@@ -476,7 +476,7 @@ blocks:
     dc_offset_auto_mode0: 'False'
     dc_offset_auto_mode1: 'False'
     dev: driver=uhd
-    devname: uhd
+    devname: plutosdr
     gain_auto_mode0: 'False'
     gain_auto_mode1: 'False'
     iamp_gain0: '0'
