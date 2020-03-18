@@ -24,7 +24,7 @@ ncolumns = data.shape[1]
 plt.figure(num=1, figsize=(10, 6))
 plt.title(title)
 plt.xlabel('Gain setting')
-plt.ylabel('Power (dBm)')
+plt.ylabel('Measured power (dBm)')
 plt.plot(data[:,0], data[:,1], label='145.5 MHz')
 plt.plot(data[:,0], data[:,2], label='436.5 MHz')
 plt.plot(data[:,0], data[:,3], label='1280 MHz')
