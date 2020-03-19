@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Plots CW TX power vs. gain setting
+# Plots RX BDR and max Pin vs. gain setting
 #
 
 import sys
