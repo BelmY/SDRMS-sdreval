@@ -1,0 +1,14 @@
+# Cross-check of noise figure measurements using SDR Radio V3
+# Airspy Mini using Y-factor on 145 MHz
+# Gain	Softrig  SDRRadio
+11	24.76	24.76
+12	22.00	23.91
+13	19.13	19.13
+14	15.25	16.71
+15	14.69	15.06
+16	11.70	12.13
+17	 9.46	 9.46
+18	 8.13	 8.13
+19	 7.09	 7.43
+20	 7.09	 7.32
+21	 7.09	 6.75
