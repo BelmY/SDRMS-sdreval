@@ -59,7 +59,7 @@ blocks:
     start: '-12'
     step: '1'
     stop: '64'
-    value: '0'
+    value: '30'
     widget: counter_slider
   states:
     bus_sink: false
@@ -482,7 +482,7 @@ blocks:
     iamp_gain0: '0'
     iamp_gain1: '0'
     length_tag_name: ''
-    manual_gain0: 'True'
+    manual_gain0: 'False'
     manual_gain1: 'True'
     nchan: '1'
     nco_freq0: '0'
@@ -494,6 +494,8 @@ blocks:
     pga_gain0: '24'
     pga_gain1: '0'
     samp_rate: samp_rate
+    txvga1_gain: '-35'
+    txvga2_gain: '0'
     type: fc32
     vga_gain0: '10'
   states:
