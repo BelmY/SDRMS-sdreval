@@ -1,0 +1,11 @@
+# LimeSDR Mini Noise Figure measured on 1280 MHz using the Y-factor method,
+# with and without enclosure
+#
+# Gain   NF_with_enc    NF_without_enc
+40.0	25.5	13.5
+45.0	22.9	10.8
+50.0	22.9	9.2
+55.0	22.3	8.6
+60.0	23.7	8.1
+65.0	24.5	8.2
+73.0	22.9	8.0
